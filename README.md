@@ -14,3 +14,9 @@ A Web based online election system that allows to
   #### Data - MySQL Database, all passwords stored as encrypted hash values
   #### Frontend - HTML/CSS/Javascript Web Application
   #### Mail - PHP Mailer utility to send emails via PHP
+
+## Screen shots
+------------------
+![](https://github.com/Rujul-Patel/Online-Election-System/blob/master/2021-01-13-152749_714x401_scrot.png)
+![](https://github.com/Rujul-Patel/Online-Election-System/blob/master/2021-01-13-152332_1354x582_scrot.png)
+![](https://github.com/Rujul-Patel/Online-Election-System/blob/master/2021-01-13-152200_1172x514_scrot.png)

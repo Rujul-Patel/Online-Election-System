@@ -1,0 +1,27 @@
+/************************************8
+	heirarchical List
+*******************************************/
+.list
+{
+	background-color:#999;
+	overflow:hidden;
+	width:500px;
+}
+
+.list_grp
+{
+	padding-top:5px;
+	padding-left:30px;
+}
+
+
+.list_grp a
+{
+	display:block;
+	color:white;
+	text-decoration:none;
+	background-color:#555;
+	width:99%;
+	border:solid black thin;
+	padding:10px;
+}

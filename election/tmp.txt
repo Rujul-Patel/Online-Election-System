@@ -1,0 +1,119 @@
+
+			<div class='tab'>
+				<div class='tab_head'>
+					<h3>Organize Election</h3>
+				</div>
+				
+				<form action='new_election.php' id='post_setup' method='post'>
+					<table class='frm'>
+						<caption>Manage Post</caption>
+						<!-- TEMPORARY -->
+						<tr>
+							<td>TMP - ID</td>
+							<td><input type='text' name='election_id' value='<?php echo $el_id;?>'></td>
+						</tr>
+						<tr>
+							<th>Post Title</th>
+							<td><input type='text' name='post_title'></td>
+						</tr>
+						<tr>
+							<th>Voters Allowed</th>
+							<td>
+								<select name='post_grp'>
+									<option value='1'>All</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+					<table id='post_cnd'>
+						<caption>Candidates</caption>
+						<tr>
+							<th>S. No</th>
+							<th>Candidate Name</th>
+						</tr>
+						<tr>
+							<td><span class='post_cnd_srl'>1</span></td>
+							<td><input type='text' name='post_cnd[]' placeholder='Candidate Name'></td>
+							<td><input type='button' value='Add Another Candidate' onclick='newRow()'></td>
+						</tr>
+					</table>
+					<input type='submit' value='Create Post'>
+				</form>
+				
+				
+				
+			</div>
+			
+			
+			
+			<div class='side' id='strc'>
+				<?php
+					$el_id	= 1;	//Temporary
+					
+					
+					
+					$qry = "select p.post_num,p.post_title,g.groupName from election_structure p left join voter_groups g on g.groupId = p.allowed_group and  p.el_id = $el_id";
+					$res = $conn->query($qry);
+					
+					while($row = $res->fetch_array(MYSQLI_ASSOC))
+					{
+						$subqry = "select candidateName from election_candidates where el_id = $el_id and post_no='".$row['post_num']."'";
+						$subres = $conn->query($subqry);
+						while($subrow = $subres->fetch_array(MYSQLI_ASSOC))
+						{
+							var_dump($subrow);
+						}
+						
+						
+						
+						var_dump($row);
+					}
+					
+					
+					
+					
+					
+					
+					
+			
+			
+			
+				?>
+				
+				
+				
+			</div>
+			
+			
+			
+			if(isset($_POST['election_id']) && isset($_POST['post_title']) && isset($_POST['post_grp']))
+	{
+		//Add New Post to Election
+		
+		//Retrieve Next Post Number
+		$res = $conn->query("select if(max(post_num) is null,0,max(post_num)) as post_num from election_structure where el_id = '".$_POST['election_id']."'");
+		$row = $res->fetch_array(MYSQLI_NUM);
+		$row[0]++;
+		//Add Post
+		$stmt = $conn->prepare("insert into election_structure(el_id,post_num,post_title,allowed_group) values(?,?,?,?)");
+		
+		$stmt->bind_param("ddsd",$_POST['election_id'],$row[0],$_POST['post_title'],$_POST['post_grp']);
+		if(!$stmt->execute())
+		{
+			die("Error");
+		}
+		
+		
+		//Add Candidates
+		
+		
+		$stmt = $conn->prepare("insert into election_candidates(el_id,post_no,candidateName) values(?,?,?)");
+		
+		foreach($_POST['post_cnd'] as $cnd)
+		{
+			$stmt->bind_param("dds",$_POST['election_id'],$row[0],$cnd);
+			$stmt->execute();
+				
+		}
+		
+		

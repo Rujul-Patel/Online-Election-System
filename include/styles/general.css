@@ -1,0 +1,164 @@
+body
+{
+	
+}
+
+/***********************************************
+	MENU STYLES
+************************************************/
+.menubar
+{
+	border:solid black thin;
+	margin:5px 1px 5px 1px;
+	padding:0px;
+	overflow:hidden;
+	background-color:black;
+    opacity: 0.8;
+    position:sticky;
+    top:0;
+    width:100%;		
+}
+
+.menubar .mhead
+{
+	float:left;
+}
+
+.menubar .rightMenu
+{
+	float:right;
+	overflow:hidden;
+}
+
+.menubar a
+{
+	color:white;
+	text-decoration:none;
+	display:block;
+	padding:14px 20px;
+}
+
+.menubar a:hover
+{
+	background-color:#111;
+}
+
+
+
+/*********************************************************
+		BLOG - POST DISPLAY STYLES
+*********************************************************/
+.post
+{
+	background-color:#888888;
+	margin:15px;
+	border-radius:2px;
+}
+
+.post .post_head
+{
+	background-color:#383838;
+	color:white;
+	font-weight:bold;
+	padding:5px 30px 5px 30px;
+	overflow:hidden;
+}
+
+.post_head .post_user
+{
+	padding-left:20px;
+	float:left;
+	
+}
+
+
+
+.post .post_head .datetime
+{
+	float:right;
+}
+
+.post .post_head a
+{
+	color:white;
+	text-decoration:none;
+}
+
+.post .post_content
+{
+	padding:15px;
+}
+
+
+.post .comment
+{
+	background-color:#707070;
+}
+
+
+/*******************************************8
+HEADER STYLES`
+************************************************/
+.head
+{
+	background-color:#444;
+	margin:3px;
+	padding:15px;
+	color:white;
+	font-size:38pt;
+}
+
+
+
+
+
+/**************************************************************8
+	REPORT STYLES
+***************************************************************/
+
+table.rep{
+  margin: auto;
+  margin-right: 15%;
+  margin-left: 15%;
+  font-size:15pt;
+  
+}
+
+table.rep td{
+ text-align: center;
+ background-color: #bfbfbf;
+ padding:2px 5px 2px 5px;
+}
+
+table.rep th{
+  text-align: center;
+  background-color: #808080;
+}
+
+
+/**************************************************************8
+	REPORT STYLES
+***************************************************************/
+
+table.frm{
+  margin: auto;
+  border-collapse:collapse;
+  margin-right: 25%;
+  margin-left: 25%;
+  
+}
+
+table.frm td{
+ padding:2px 5px;
+ text-align: center;
+ background-color: #bfbfbf;
+ border:solid black thin;
+}
+
+
+table.frm th{
+	padding:2px 5px;
+  text-align: center;
+  background-color: #808080;
+  border:solid black thin;
+}

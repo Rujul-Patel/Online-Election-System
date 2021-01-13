@@ -1,0 +1,32 @@
+.tab
+{
+	
+	background-color:#ccc;
+	padding:20px;
+	border:solid black thin;
+}
+
+
+
+.tab_nav button
+{
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+
+}
+
+.content{
+	margin-right:500px;
+}
+
+
+.right
+{
+	width:450px;
+	float:right;
+}
